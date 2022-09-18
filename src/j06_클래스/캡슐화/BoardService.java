@@ -48,7 +48,20 @@ public class BoardService {
 	}
 	
 	public void update() {
+		System.out.println("[ 게시글 수정 ]");
+		if(board == null) {
+			System.out.println("수정할 게시글이 없습니다.");
+			return;
+		}
+		System.out.print("제목: ");
+		board.setTitle(scanner.nextLine());
+		System.out.print("작성자: ");
+		board.setWriter(scanner.nextLine());
+		System.out.print("내용: ");
+		board.setContent(scanner.nextLine());
 		
+		System.out.println();
+		System.out.println("게시글 수정 완료.");
 	}
 	
 	public void delete() {

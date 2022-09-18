@@ -5,12 +5,17 @@ import java.util.Scanner;
 public class BoardMain {
 
 	public static void main(String[] args) {
+		
+		//입력을 위해서 선언 및 초기화(Scanner 객체 생성)
 		Scanner scanner = new Scanner(System.in);
 		
+		// BoardService 객체 생성(서비스 레이어, 로직)
 		BoardService boardService = new BoardService();
 		
+		// select 변수 선언 후 null로 초기화
 		String select = null;
 		
+		// 프로그램 전체 반복을 통해 원하는 시점에 프로그램을 종료시키는 원리
 		while(true) {
 			System.out.println("[ 게시글 관리 프로그램 ]");
 			System.out.println("c. 게시글 작성");
