@@ -34,15 +34,45 @@ public class IntegratedController {
 				
 			}else if(cmd.equals("2")) {
 				service.showAirConditionersStatus();
-				System.out.print("몇번째 에어컨을 켜시겠습니까? ");
-				service.selectedOn(scanner.nextInt());
-				scanner.nextLine();
+				int count = service.getAirConditionersSize();
+				
+				while(true) {
+					System.out.print("몇번째 에어컨을 켜시겠습니까? ");
+					int selected = scanner.nextInt();
+					scanner.nextLine();
+					
+					if(selected > 0 && selected < count + 1) {
+						service.selectedOn(selected);	
+						break;
+					}else {
+						System.out.println("다시 입력하세요.");
+					}
+					
+				}
 				
 			}else if(cmd.equals("3")) {
+				service.showAirConditionersStatus();
+				int count = service.getAirConditionersSize();
+				
+				while(true) {
+					System.out.print("몇번째 에어컨을 끄시겠습니까? ");
+					int selected = scanner.nextInt();
+					scanner.nextLine();
+					
+					if(selected > 0 && selected < count + 1) {
+						service.selectedOff(selected);	
+						break;
+					}else {
+						System.out.println("다시 입력하세요.");
+					}
+					
+				}
 				
 			}else if(cmd.equals("4")) {
+				service.selectedAllOn();
 				
 			}else if(cmd.equals("5")) {
+				service.selectedAllOff();
 				
 			}else {
 				System.out.println("메뉴를 다시 선택하세요.");

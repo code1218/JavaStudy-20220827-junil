@@ -1,6 +1,7 @@
 package j10_인터페이스.IntegratedControl;
 
 public class IntegratedControlService {
+	
 	private AirConditioner[] airConditioners;
 
 	public void init(int airConditionerCount) {
@@ -30,7 +31,7 @@ public class IntegratedControlService {
 		System.out.println("에어컨 생성 정보");
 		
 		for(int i = 0; i < airConditioners.length; i++) {
-			System.out.print(i + 1 + ". ");
+			System.out.print(i + 1 + ".\t");
 			printPowerStatus(airConditioners[i]);
 		}
 	}
@@ -47,6 +48,26 @@ public class IntegratedControlService {
 		
 		airConditioner.powerOff();
 		System.out.println(airConditioner.getProductName() + "에어컨 전원을 끕니다.");
+	}
+	
+	public void selectedAllOn() {
+		
+		System.out.println("전체 전원을 켭니다.");
+		
+		for(AirConditioner airConditioner : airConditioners) {
+			airConditioner.powerOn();
+		}
+		
+	}
+	
+	public void selectedAllOff() {
+		
+		System.out.println("전체 전원을 끕니다.");
+		
+		for(AirConditioner airConditioner : airConditioners) {
+			airConditioner.powerOff();
+		}
+		
 	}
 	
 }
